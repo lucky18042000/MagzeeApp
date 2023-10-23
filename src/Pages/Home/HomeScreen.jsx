@@ -3,7 +3,7 @@ import { Text } from 'react-native'
 
 function HomeScreen() {
     return (
-        <Text>HomeScreen</Text>
+        <Text style={{ color: "#000" }}>HomeScreen</Text>
     )
 }
 

@@ -8,7 +8,7 @@ width="3264.000000pt" height="3264.000000pt" viewBox="0 0 3264.000000 3264.00000
 preserveAspectRatio="xMidYMid meet">
 
 <g transform="translate(0.000000,3264.000000) scale(0.100000,-0.100000)"
-fill="#000000" stroke="none">
+fill="#FFF" stroke="none">
 <path d="M11450 25034 c-108 -9 -354 -56 -440 -84 -146 -48 -185 -64 -350
 -144 -257 -124 -407 -223 -659 -431 -197 -162 -488 -471 -651 -690 -286 -386
 -355 -480 -515 -703 -88 -123 -177 -247 -197 -275 -249 -352 -797 -1166 -989
@@ -144,9 +144,9 @@ const SplashScreen = ({ navigation }) => {
     }, [navigation]);
 
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: "#6441A5" }}>
             <SvgXml xml={svgString} width="50%" height="50%" />
-            {/* <Text>Splash Screen</Text> */}
+            <Text>The Ultimate Gaming Space</Text>
         </View>
     );
 };

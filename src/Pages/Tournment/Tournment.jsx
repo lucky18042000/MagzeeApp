@@ -3,7 +3,7 @@ import { Text } from 'react-native'
 
 function Tournment() {
     return (
-        <Text>Tournment</Text>
+        <Text style={{ color: "#000" }}>Tournment</Text>
     )
 }
 

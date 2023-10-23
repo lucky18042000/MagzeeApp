@@ -5,8 +5,9 @@ import { TextInput } from 'react-native-gesture-handler';
 import { SvgXml } from 'react-native-svg';
 import { Svg, Path, Circle, Rect } from 'react-native-svg';
 
-function LoginScreen() {
+function SignUp() {
     const navigation = useNavigation();
+
     const [password, setPassword] = useState('');
     const [isPasswordVisible, setPasswordVisible] = useState(false);
     const togglePasswordVisibility = () => {
@@ -148,8 +149,17 @@ function LoginScreen() {
         <View style={{ backgroundColor: "#6441A5", width: "100%", height: "100%", paddingHorizontal: 24, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', paddingBottom: 77 }}>
             <View style={{ marginTop: 77 }}>
                 <SvgXml xml={svgString} width="64px" height="74px" />
-                <Text style={{ color: "#FFF", fontSize: 31, fontWeight: "700", marginTop: 16, marginBottom: 46 }}>Welcome 🎉</Text>
+                <Text style={{ color: "#FFF", fontSize: 31, fontWeight: "700", marginTop: 16, marginBottom: 46 }}>Join Us 🎉</Text>
                 <View >
+                    <Text style={{ color: "#FFF", fontSize: 16, marginBottom: 8, }}>Name</Text>
+                    <TextInput
+                        style={{ color: "#000", paddingHorizontal: 16, display: "flex", fontSize: 16, padding: 16, justifyContent: 'space-between', alignItems: 'center', borderRadius: 8, backgroundColor: "#FFF" }}
+                        placeholder='Enter your Name'
+                        autoComplete='off'
+                        placeholderTextColor='rgba(0, 0, 0, 0.65)'
+                    />
+                </View>
+                <View style={{ marginTop: 16 }}>
                     <Text style={{ color: "#FFF", fontSize: 16, marginBottom: 8, }}>Email</Text>
                     <TextInput
                         style={{ color: "#000", paddingHorizontal: 16, display: "flex", fontSize: 16, padding: 16, justifyContent: 'space-between', alignItems: 'center', borderRadius: 8, backgroundColor: "#FFF" }}
@@ -158,53 +168,48 @@ function LoginScreen() {
                         placeholderTextColor='rgba(0, 0, 0, 0.65)'
                     />
                 </View>
-                <View style={{ marginTop: 16, }}>
+                <View style={{ marginTop: 16 }}>
                     <Text style={{ color: "#FFF", fontSize: 16, marginBottom: 8, }}>Password</Text>
-                    <View style={styles.inputContainer}>
-                        <TextInput
-                            style={styles.input}
-                            placeholderTextColor="rgba(0, 0, 0, 0.65)"
-                            placeholder="Enter Your Password"
-                            secureTextEntry={!isPasswordVisible}
-                            value={password}
-                            onChangeText={(text) => setPassword(text)}
-                        // maxLength={10} // Limit input to 10 characters
-                        />
-                        <TouchableOpacity onPress={togglePasswordVisibility} style={{ paddingHorizontal: 16, }}>
-                            {isPasswordVisible ? <View>
-                                <Svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
-                                    <Path d="M15.8773 12.2168L13.1135 9.5102C13.2286 9.27056 13.315 9.02753 13.3726 8.78112C13.4301 8.53415 13.4589 8.26969 13.4589 7.98776C13.4589 6.93051 13.0812 6.03171 12.3258 5.29135C11.5697 4.55156 10.6519 4.18166 9.57226 4.18166C9.28436 4.18166 9.01431 4.20986 8.76211 4.26624C8.51048 4.32263 8.26231 4.40721 8.0176 4.51998L5.81515 2.36319C6.40535 2.12355 7.00994 1.94368 7.62893 1.82357C8.24792 1.70403 8.8957 1.64426 9.57226 1.64426C11.6308 1.64426 13.4805 2.17627 15.1216 3.24029C16.7626 4.30487 17.9934 5.69001 18.8139 7.3957C18.8571 7.46619 18.8859 7.55415 18.9003 7.65959C18.9147 7.7656 18.9219 7.87499 18.9219 7.98776C18.9219 8.10053 18.9112 8.20964 18.8899 8.31509C18.868 8.42109 18.8427 8.50934 18.8139 8.57982C18.4828 9.29875 18.0691 9.96834 17.5728 10.5886C17.0758 11.2088 16.5107 11.7516 15.8773 12.2168ZM15.7046 16.7841L12.6816 13.8661C12.1778 14.0211 11.6705 14.1376 11.1598 14.2154C10.6484 14.2926 10.1193 14.3313 9.57226 14.3313C7.51377 14.3313 5.664 13.7993 4.02296 12.7352C2.38192 11.6707 1.15114 10.2855 0.330619 8.57982C0.287434 8.50934 0.258644 8.42109 0.244249 8.31509C0.229854 8.20964 0.222656 8.10053 0.222656 7.98776C0.222656 7.87499 0.229854 7.76926 0.244249 7.67059C0.258644 7.57191 0.287434 7.48733 0.330619 7.41685C0.632916 6.7825 0.992793 6.19749 1.41025 5.66181C1.82771 5.12614 2.28835 4.63276 2.79218 4.18166L0.999991 2.40548C0.841645 2.25042 0.762472 2.05645 0.762472 1.82357C0.762472 1.59126 0.848843 1.39052 1.02158 1.22136C1.17993 1.0663 1.38146 0.98877 1.62618 0.98877C1.87089 0.98877 2.07243 1.0663 2.23077 1.22136L16.9138 15.6C17.0721 15.755 17.155 15.949 17.1625 16.1819C17.1694 16.4142 17.0865 16.6149 16.9138 16.7841C16.7554 16.9391 16.5539 17.0167 16.3092 17.0167C16.0644 17.0167 15.8629 16.9391 15.7046 16.7841ZM9.57226 11.7939C9.73061 11.7939 9.87802 11.7868 10.0145 11.7727C10.1515 11.7586 10.2992 11.7304 10.4576 11.6881L5.79355 7.12082C5.75037 7.27588 5.72158 7.42051 5.70718 7.55471C5.69279 7.68835 5.68559 7.8327 5.68559 7.98776C5.68559 9.04501 6.06332 9.94381 6.81877 10.6842C7.5748 11.424 8.49263 11.7939 9.57226 11.7939ZM11.8611 8.28379L9.26997 5.74639C10.0905 5.61952 10.7599 5.84507 11.2781 6.42303C11.7963 7.001 11.9906 7.62125 11.8611 8.28379Z" fill="#6441A5" />
-                                </Svg>
-                            </View> :
-                                <View>
-                                    <Svg xmlns="http://www.w3.org/2000/svg" width="20" height="13" viewBox="0 0 20 13" fill="none">
-                                        <Path d="M9.72266 0C13.2177 0 17.4766 2.24436 18.9662 5.4795C19.1049 5.78407 19.2227 6.13879 19.2227 6.5C19.2227 6.86029 19.1058 7.21593 18.9662 7.5205C17.4756 10.7556 13.2168 13 9.72266 13C6.22761 13 1.96876 10.7556 0.479156 7.5205C0.340456 7.215 0.222656 6.86121 0.222656 6.5C0.222656 6.13971 0.339506 5.78407 0.479156 5.4795C1.96971 2.24436 6.22856 0 9.72266 0ZM9.72266 2.78571C8.71483 2.78571 7.74829 3.17704 7.03565 3.8736C6.32301 4.57017 5.92266 5.51491 5.92266 6.5C5.92266 7.48509 6.32301 8.42983 7.03565 9.1264C7.74829 9.82296 8.71483 10.2143 9.72266 10.2143C10.7305 10.2143 11.697 9.82296 12.4097 9.1264C13.1223 8.42983 13.5227 7.48509 13.5227 6.5C13.5227 5.51491 13.1223 4.57017 12.4097 3.8736C11.697 3.17704 10.7305 2.78571 9.72266 2.78571ZM9.72266 4.64286C10.2266 4.64286 10.7098 4.83852 11.0662 5.1868C11.4225 5.53508 11.6227 6.00745 11.6227 6.5C11.6227 6.99254 11.4225 7.46492 11.0662 7.8132C10.7098 8.16148 10.2266 8.35714 9.72266 8.35714C9.21875 8.35714 8.73547 8.16148 8.37915 7.8132C8.02283 7.46492 7.82266 6.99254 7.82266 6.5C7.82266 6.00745 8.02283 5.53508 8.37915 5.1868C8.73547 4.83852 9.21875 4.64286 9.72266 4.64286Z" fill="#6441A5" />
-                                    </Svg>
-                                </View>}
-                        </TouchableOpacity>
-                    </View>
+                    <TextInput
+                        style={{ color: "#000", paddingHorizontal: 16, display: "flex", fontSize: 16, padding: 16, justifyContent: 'space-between', alignItems: 'center', borderRadius: 8, backgroundColor: "#FFF" }}
+                        placeholder='Create your Password'
+                        autoComplete='off'
+                        placeholderTextColor='rgba(0, 0, 0, 0.65)'
+                    />
+                </View>
+                <View style={{ marginTop: 16 }}>
+                    <Text style={{ color: "#FFF", fontSize: 16, marginBottom: 8, }}>Confrim Password</Text>
+                    <TextInput
+                        style={{ color: "#000", paddingHorizontal: 16, display: "flex", fontSize: 16, padding: 16, justifyContent: 'space-between', alignItems: 'center', borderRadius: 8, backgroundColor: "#FFF" }}
+                        placeholder='Re-Enter your Password'
+                        autoComplete='off'
+                        placeholderTextColor='rgba(0, 0, 0, 0.65)'
+                    />
+                </View>
+                <View style={{ marginTop: 16 }}>
+                    <Text style={{ color: "#FFF", fontSize: 16, marginBottom: 8, }}>Phone</Text>
+                    <TextInput
+                        style={{ color: "#000", paddingHorizontal: 16, display: "flex", fontSize: 16, padding: 16, justifyContent: 'space-between', alignItems: 'center', borderRadius: 8, backgroundColor: "#FFF" }}
+                        placeholder='Enter your Phone'
+                        autoComplete='off'
+                        placeholderTextColor='rgba(0, 0, 0, 0.65)'
+                    />
                 </View>
 
-                <View style={{ marginTop: 10.5 }}>
-                    <Text style={{ color: "#FFF", fontSize: 16, fontWeight: '700', textDecorationLine: 'underline', textAlign: 'right' }}>Forgot password</Text>
-                </View>
+
+
             </View>
             <View>
                 <Text onPress={() => navigation.navigate('Home')} style={{ marginTop: 35, color: "#6441A5", textAlign: "center", fontSize: 18, fontWeight: '500', display: "flex", padding: 18, justifyContent: 'center', alignItems: 'center', borderRadius: 8, backgroundColor: "#FFF", shadowColor: "rgba(39, 25, 64, 0.20)" }}>
-                    Login
+                    SignUp
                 </Text>
-                <View style={{ display: "flex", flexDirection: 'row', gap: 11, justifyContent: "center", marginTop: 16 }}>
-                    <Text style={{ color: "#FFF", fontSize: 16, textTransform: 'capitalize' }}>Don’t have an account?</Text>
-                    <Text onPress={() => navigation.navigate('SignUp')} style={{ color: "#FFF", fontSize: 16, textTransform: 'capitalize', fontWeight: '700', textDecorationLine: "underline" }}>Sign up</Text>
-
-                </View>
             </View>
 
         </View>
     )
 }
 
-export default LoginScreen
+export default SignUp
 
 const styles = StyleSheet.create({
     inputContainer: {
@@ -218,6 +223,7 @@ const styles = StyleSheet.create({
 
     },
     input: {
+        width: "80%",
         paddingLeft: 10,
         color: "#000",
         fontFamily: "Rubik-Regular",
